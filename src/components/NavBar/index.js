@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import LoginModal from '@/components/LoginModal'
 
 const NavBar = () => {
     return (
@@ -51,7 +52,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    {/* <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="avatar placeholder">
                             <div className="bg-white text-neutral-content rounded-full w-10">
                                 <span className="text-m">S</span>
@@ -67,7 +68,11 @@ const NavBar = () => {
                         </li>
                         <li><a>Settings</a></li>
                         <li><a>Logout</a></li>
-                    </ul>
+                    </ul> */}
+                    <label className="btn bg-blue-400 text-white" htmlFor="signin">
+                        Login
+                    </label>
+                    <LoginModal />
                 </div>
             </div>
         </div>
