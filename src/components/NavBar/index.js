@@ -14,7 +14,7 @@ const NavBar = () => {
                 >
                     {/* <span className="bg-gradient-to-r from-purple-400 to-pink-60 text-transparent bg-clip-text"> */}
                     <span className="bg-gradient-to-r from-white to-blue-500 text-transparent bg-clip-text">
-                        superanalytica
+                        summary
                     </span>
                 </label>
                 <ul
