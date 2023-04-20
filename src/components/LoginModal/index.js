@@ -189,7 +189,7 @@ const LoginModal = () => {
                         </label>
                         <h2 className="text-4xl font-bold mb-4 text-center">
                             Welcome to <span className="bg-gradient-to-r from-white to-blue-500 text-transparent bg-clip-text">
-                                superanalytica
+                                summary
                             </span>
                         </h2>
                         <div className="text-center mb-6 text-gray-500">
@@ -358,12 +358,12 @@ const LoginModal = () => {
                         </label>
                         <h2 className="text-3xl font-bold mb-4 text-center">
                             Welcome back to <span className="bg-gradient-to-r from-white to-blue-500 text-transparent bg-clip-text">
-                                superanalytica
+                                summary
                             </span>
                         </h2>
                         <div className="text-center mb-6 text-gray-500">
                             <p className="text-lg">
-                                Don't have an account?{" "}
+                                Don&apos;t have an account?{" "}
                                 <span
                                     className={`${loading ? "" : "link text-blue-400"}`}
                                     onClick={() => setStatus("signup")}

@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Superanalytica</title>
+        <title>summary</title>
         <meta name="description" content="Automated Mobile App Review Generator" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon-32x32.png" />
