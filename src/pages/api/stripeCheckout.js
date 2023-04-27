@@ -1,38 +1,28 @@
 import { loadStripe } from '@stripe/stripe-js';
 
 const PATH = 'http://localhost:8000'
-
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTg0MDYyLCJpYXQiOjE2ODI1ODMxNjIsImp0aSI6IjQ2NGM4ZjgyN2Y4ZjRiYmM4ZjVhOTE2MjY0M2I3N2I3IiwidXNlcl9pZCI6NywiZW1haWwiOiJ2aW5jZW50aXVzLmNocmlzdG9waGVyLmNhbHZpbkBnbWFpbC5jb20ifQ.QrgsK2rOpemil_i74dFfof7-roFfn-N7Lz89CmzXa8Q"
 // const PATH = 'https://sentiport.de.r.appspot.com'
 export default class APIService {
-    // static initStripe() {
-    //     console.log('checking out user')
-    //     return fetch(`${PATH}/api/stripe-config/`, {
-    //         method: "GET",
-    //         // headers: {
-    //         //     Authorization: `Bearer ${token}`,
-    //         // },
-    //     }).then((result) => result.json())
-    //         .then((data) => {
-    //             // Initialize Stripe.js
-    //             console.log(data)
-    //             const stripe = loadStripe(data.publishable_key)
-    //             return stripe
-    //         });
-    // }
 
     static checkoutUser() {
         return fetch(`${PATH}/api/stripe-config/`, {
             method: "GET",
-            // headers: {
-            //     Authorization: `Bearer ${token}`,
-            // },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
         }).then((result) => result.json())
             .then(async (data) => {
                 // Initialize Stripe.js
                 console.log(data)
                 const stripe = await loadStripe(data.publishable_key)
                 console.log(stripe)
-                fetch(`${PATH}/api/create-checkout-session/`)
+                fetch(`${PATH}/api/create-checkout-session/`, {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
                     .then((result) => { return result.json(); })
                     .then((data) => {
                         console.log(data);
