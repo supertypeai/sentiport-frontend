@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import APIService from "../../pages/api/stripeCheckout"
+import APIService from "../pages/api/stripeCheckout"
 
 const CreditsStats = () => {
     return (
