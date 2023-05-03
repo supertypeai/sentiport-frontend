@@ -1,10 +1,12 @@
 import Mainframe from "@/blocks/MainFrame";
 import CreditsStats from "@/components/CreditsStats";
+import DemoForm from "@/components/DemoForm";
 
 export default function Home() {
   return (
     <Mainframe>
-      <CreditsStats />
+      <DemoForm />
+      {/* <CreditsStats />
       <div className="col-span-12 items-center">
         <div className="lg:w-1/2 lg:h-full lg:float-left lg:pl-4">
           <div className="mockup-phone border-blue-400">
@@ -38,7 +40,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </Mainframe>
   );
 }
