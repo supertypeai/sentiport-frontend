@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Form, Field, Input } from "@/blocks/Form";
 import { MessageAlert, SubmitBtn } from "./LoginForm";
 
-const EnrollForm = ({ setStatus, setIsOpen }) => {
+const EnrollForm = ({ setStatus, setIsOpen, isOpen }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
@@ -55,20 +55,21 @@ const EnrollForm = ({ setStatus, setIsOpen }) => {
         <button
           className="btn btn-sm btn-circle absolute right-2 top-2"
           onClick={() => {
-            setIsOpen(false);
-            setError(false);
-            reset();
-            setStatus("login");
+            if (isOpen) {
+              setIsOpen(false);
+              setError(false);
+              reset();
+              setStatus("login");
+            } else {
+              window.location.reload();
+            }
           }}
           disabled={isSubmitting ? true : false}
         >
           ✕
         </button>
         <h2 className="text-3xl font-bold mb-4 text-center">
-          Enroll to{" "}
-          <span className="bg-gradient-to-r from-white to-blue-500 text-transparent bg-clip-text">
-            summary
-          </span>
+          Enroll to <span className="logo-gradient">summary</span>
         </h2>
         <div className="text-center mb-6 text-gray-500">
           <p className="text-md">

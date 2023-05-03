@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Form, Field, Input } from "@/blocks/Form";
 import { MessageAlert, SubmitBtn } from "./LoginForm";
 
-const ResetPasswordForm = ({ setStatus, setIsOpen }) => {
+const ResetPasswordForm = ({ setStatus, setIsOpen, isOpen }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
@@ -53,10 +53,14 @@ const ResetPasswordForm = ({ setStatus, setIsOpen }) => {
         <button
           className="btn btn-sm btn-circle absolute right-2 top-2"
           onClick={() => {
-            setIsOpen(false);
-            setError(false);
-            reset();
-            setStatus("login");
+            if (isOpen) {
+              setIsOpen(false);
+              setError(false);
+              reset();
+              setStatus("login");
+            } else {
+              window.location.reload();
+            }
           }}
           disabled={isSubmitting ? true : false}
         >

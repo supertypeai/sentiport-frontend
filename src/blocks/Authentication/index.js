@@ -14,13 +14,29 @@ const Authentication = ({ isOpen, setIsOpen }) => {
       <div className={`modal ${isOpen ? "modal-open" : ""}`}>
         <div className="modal-box w-10/12 md:w-6/12 max-w-4xl">
           {status === "login" ? (
-            <LoginForm setStatus={setStatus} setIsOpen={setIsOpen} />
+            <LoginForm
+              setStatus={setStatus}
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+            />
           ) : status === "signup" ? (
-            <EnrollForm setStatus={setStatus} setIsOpen={setIsOpen} />
+            <EnrollForm
+              setStatus={setStatus}
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+            />
           ) : status === "forgot" ? (
-            <ForgotPasswordForm setStatus={setStatus} setIsOpen={setIsOpen} />
+            <ForgotPasswordForm
+              setStatus={setStatus}
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+            />
           ) : (
-            <ResetPasswordForm setStatus={setStatus} setIsOpen={setIsOpen} />
+            <ResetPasswordForm
+              setStatus={setStatus}
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+            />
           )}
         </div>
       </div>

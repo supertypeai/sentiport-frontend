@@ -57,7 +57,7 @@ export const SubmitBtn = ({ isSubmitting, text }) => {
   );
 };
 
-const LoginForm = ({ setStatus, setIsOpen }) => {
+const LoginForm = ({ setStatus, setIsOpen, isOpen }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
@@ -89,7 +89,7 @@ const LoginForm = ({ setStatus, setIsOpen }) => {
         }
       })
       .then((data) => {
-        sessionStorage.setItem("userSession", data.access);
+        localStorage.setItem("userSession", JSON.stringify(data));
         reset();
         setError(false);
         window.location.reload();
@@ -108,19 +108,20 @@ const LoginForm = ({ setStatus, setIsOpen }) => {
         <button
           className="btn btn-sm btn-circle absolute right-2 top-2"
           onClick={() => {
-            setIsOpen(false);
-            reset();
-            setError(false);
+            if (isOpen) {
+              setIsOpen(false);
+              reset();
+              setError(false);
+            } else {
+              window.location.reload();
+            }
           }}
           disabled={isSubmitting ? true : false}
         >
           ✕
         </button>
         <h2 className="text-3xl font-bold mb-4 text-center">
-          Welcome to{" "}
-          <span className="bg-gradient-to-r from-white to-blue-500 text-transparent bg-clip-text">
-            summary
-          </span>
+          Welcome to <span className="logo-gradient">summary</span>
         </h2>
         <div className="text-center mb-6 text-gray-500">
           <p className="text-md">
