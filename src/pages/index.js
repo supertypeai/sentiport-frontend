@@ -1,11 +1,14 @@
 import Mainframe from "@/blocks/MainFrame";
+import Body from "@/blocks/Body";
 import CreditsStats from "@/components/CreditsStats";
 import DemoForm from "@/components/DemoForm";
 
 export default function Home() {
   return (
     <Mainframe>
-      <DemoForm />
+      <Body>
+        <DemoForm />
+      </Body>
       {/* <CreditsStats />
       <div className="col-span-12 items-center">
         <div className="lg:w-1/2 lg:h-full lg:float-left lg:pl-4">

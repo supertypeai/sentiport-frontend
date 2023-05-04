@@ -309,7 +309,6 @@ const DemoForm = () => {
                   href="#home"
                   onClick={() => {
                     reset();
-                    setHaveSubmit(false);
                   }}
                   className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:border-blue-300 max-w-fit"
                 >

@@ -37,7 +37,7 @@ const ChangePasswordForm = ({ token }) => {
         }
       })
       .then((data) => {
-        localStorage.setItem("userSession", data.access);
+        localStorage.setItem("userSession", JSON.stringify(data));
         reset();
         setError(false);
         window.location.reload();

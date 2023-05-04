@@ -22,7 +22,7 @@ const ResetPasswordForm = ({ setStatus, setIsOpen, isOpen }) => {
     setIsSubmitting(true);
 
     fetch(`https://sentiport.de.r.appspot.com/api/password-reset-complete/`, {
-      method: "POST",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
