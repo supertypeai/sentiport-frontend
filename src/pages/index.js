@@ -2,12 +2,14 @@ import Mainframe from "@/blocks/MainFrame";
 import Body from "@/blocks/Body";
 import Pricing from "@/components/Pricing";
 import DemoForm from "@/components/DemoForm";
+import Video from "@/components/Video";
 
 export default function Home() {
   return (
     <Mainframe>
       <Body>
         <DemoForm />
+        <Video />
         <Pricing />
       </Body>
       {/* <CreditsStats />
