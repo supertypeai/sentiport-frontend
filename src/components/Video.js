@@ -48,7 +48,7 @@ const Video = () => {
   return (
     <div className="my-12">
       <div className="mb-12 text-center font-bold">
-        <h1 className="text-2xl sm:text-4xl typewriter">
+        <h1 className="text-2xl sm:text-4xl">
           Programmatic PDFs for <TypingComponent />
         </h1>
       </div>

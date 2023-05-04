@@ -1,8 +1,10 @@
 import Mainframe from "@/blocks/MainFrame";
 import Body from "@/blocks/Body";
-import Pricing from "@/components/Pricing";
 import DemoForm from "@/components/DemoForm";
 import Video from "@/components/Video";
+import Steps from "@/components/Steps";
+import Pricing from "@/components/Pricing";
+import Testimonial from "@/components/Testimonial";
 
 export default function Home() {
   return (
@@ -10,7 +12,9 @@ export default function Home() {
       <Body>
         <DemoForm />
         <Video />
+        <Steps />
         <Pricing />
+        <Testimonial />
       </Body>
       {/* <CreditsStats />
       <div className="col-span-12 items-center">

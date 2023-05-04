@@ -68,7 +68,7 @@ const ResetPasswordForm = ({ setStatus, setIsOpen, isOpen }) => {
         </button>
         <h2 className="text-3xl font-bold mb-4 text-center">Reset Password</h2>
         <div className="text-center mb-6 text-gray-500">
-          <p className="text-md">
+          <p className="text-base">
             Not yet received any email?{" "}
             <span
               className={`${isSubmitting ? "" : "link text-blue-500"}`}

@@ -71,7 +71,7 @@ const EnrollForm = ({ setStatus, setIsOpen, isOpen }) => {
           Enroll to <span className="logo-gradient">summary</span>
         </h2>
         <div className="text-center mb-6 text-gray-500">
-          <p className="text-md">
+          <p className="text-base">
             Already have an account?{" "}
             <span
               className={`${isSubmitting ? "" : "link text-blue-500"}`}

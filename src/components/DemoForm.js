@@ -67,7 +67,7 @@ const DemoForm = () => {
             <br />
             Generation <span className="text-gradient">in Minutes</span>
           </h1>
-          <article className="prose text-md sm:text-lg text-gray-300 mb-6">
+          <article className="prose text-base sm:text-lg text-gray-300 mb-6">
             Supertype Summary creates a highly tailored pipeline that output
             bespoke PDF in minutes, not days or hours. Because your time is too
             valuable to be looking for insights from millions of data points
@@ -278,7 +278,7 @@ const DemoForm = () => {
                 Thank you for your{" "}
                 <span className="text-gradient">request!</span>
               </h1>
-              <article className="prose text-md sm:text-lg text-gray-300 mb-6">
+              <article className="prose text-base sm:text-lg text-gray-300 mb-6">
                 We&apos;ve received it and are currently processing it.{" "}
                 <span className="text-gradient">
                   Within the next 10-20 minutes

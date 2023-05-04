@@ -97,7 +97,7 @@ const Pricing = () => {
     <div className="my-12" id="pricing">
       <div className="mb-12 text-center font-bold">
         <h1 className="text-2xl sm:text-4xl">
-          Pricing <span className="text-gradient">Plans</span>
+          <span className="text-gradient">Pricing</span> Plans
         </h1>
         <p className="text-lg sm:text-xl mt-6 text-slate-400">
           1 CREDIT = 1 REPORT
