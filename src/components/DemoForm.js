@@ -59,7 +59,7 @@ const DemoForm = () => {
   };
 
   return (
-    <div className="text-center mx-auto text-gray-200 carousel w-full">
+    <div className="text-center mx-auto carousel w-full mb-12">
       <div className="carousel-item relative w-full" id="home">
         <div className="grid">
           <h1 className="font-bold text-3xl sm:text-4xl lg:text-6xl mb-6">
@@ -84,14 +84,14 @@ const DemoForm = () => {
           {!user ? (
             <label
               htmlFor="auth"
-              className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:border-blue-300 max-w-fit place-self-center"
+              className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit place-self-center"
             >
               Try for Free {">"}
             </label>
           ) : (
             <Link
               href="#demo-page-1"
-              className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:border-blue-300 max-w-fit place-self-center"
+              className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit place-self-center"
             >
               Get Started {">"}
             </Link>
@@ -151,13 +151,13 @@ const DemoForm = () => {
                         email: "",
                       })
                     }
-                    className="btn rounded-full bg-red-500 text-white hover:border-red-300 max-w-fit mr-5"
+                    className="btn rounded-full bg-red-500 text-gray-200 hover:border-red-300 max-w-fit mr-5"
                   >
                     Cancel ✕
                   </Link>
                   <button
                     type="submit"
-                    className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:border-blue-300 max-w-fit"
+                    className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
                   >
                     Next {">"}
                   </button>
@@ -211,13 +211,13 @@ const DemoForm = () => {
                 <div className="flex w-full justify-center">
                   <Link
                     href="#demo-page-1"
-                    className="btn rounded-full bg-red-500 text-white hover:border-red-300 max-w-fit mr-5"
+                    className="btn rounded-full bg-red-500 text-gray-200 hover:border-red-300 max-w-fit mr-5"
                   >
                     {"<"} Back
                   </Link>
                   <button
                     type="submit"
-                    className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:border-blue-300 max-w-fit"
+                    className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
                   >
                     Next {">"}
                   </button>
@@ -242,13 +242,13 @@ const DemoForm = () => {
                   <div className="flex w-full justify-center">
                     <Link
                       href="#demo-page-2"
-                      className="btn rounded-full bg-red-500 text-white hover:border-red-300 max-w-fit mr-5"
+                      className="btn rounded-full bg-red-500 text-gray-200 hover:border-red-300 max-w-fit mr-5"
                     >
                       {"<"} Back
                     </Link>
                     <button
                       type="submit"
-                      className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:border-blue-300 max-w-fit"
+                      className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
                     >
                       Yes, I&apos;m Sure
                     </button>
@@ -264,7 +264,7 @@ const DemoForm = () => {
                 </h1>
                 <Link
                   href="#demo-page-2"
-                  className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:border-blue-300 max-w-fit place-self-center self-start"
+                  className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit place-self-center self-start"
                 >
                   Top Up Credits
                 </Link>
@@ -310,7 +310,7 @@ const DemoForm = () => {
                   onClick={() => {
                     reset();
                   }}
-                  className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:border-blue-300 max-w-fit"
+                  className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
                 >
                   OK, Got it!
                 </Link>

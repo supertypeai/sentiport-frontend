@@ -56,9 +56,9 @@ const Navbar = () => {
                 <div className="menu-title hover:bg-inherit hover:cursor-default">
                   <button
                     className="btn bg-transparent hover:border-blue-300 text-gradient border-blue-500 btn-sm shadow-md shadow-blue-500"
-                    // onClick={() => {
-                    //   scrollToSection("pricing");
-                    // }}
+                    onClick={() => {
+                      scrollToSection("pricing");
+                    }}
                   >
                     Add Credits
                   </button>

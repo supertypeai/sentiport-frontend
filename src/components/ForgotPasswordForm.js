@@ -61,7 +61,7 @@ const ForgotPasswordForm = ({ setStatus, setIsOpen, isOpen }) => {
               setIsOpen(false);
               setError(false);
               reset();
-              setStatus("login");
+              setStatus("signup");
             } else {
               window.location.reload();
             }

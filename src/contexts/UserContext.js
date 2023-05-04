@@ -28,7 +28,6 @@ export const UserContextWrapper = ({ children }) => {
   const logoutUser = () => {
     setAuthTokens(null);
     setUser(null);
-    localStorage.removeItem("userSession");
   };
 
   useEffect(() => {
@@ -57,6 +56,7 @@ export const UserContextWrapper = ({ children }) => {
         setUser(userInfo);
         setLoggingIn(false);
       } else {
+        setLoggingIn(false);
         logoutUser();
       }
 

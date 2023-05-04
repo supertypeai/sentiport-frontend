@@ -59,7 +59,6 @@ const EnrollForm = ({ setStatus, setIsOpen, isOpen }) => {
               setIsOpen(false);
               setError(false);
               reset();
-              setStatus("login");
             } else {
               window.location.reload();
             }
@@ -109,7 +108,7 @@ const EnrollForm = ({ setStatus, setIsOpen, isOpen }) => {
             disabled={isSubmitting ? true : false}
           />
         </Field>
-        <SubmitBtn isSubmitting={isSubmitting} text="Register your account" />
+        <SubmitBtn isSubmitting={isSubmitting} text="Get Free 5 Credits!" />
       </Form>
     </>
   );

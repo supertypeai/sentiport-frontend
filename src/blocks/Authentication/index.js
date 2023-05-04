@@ -6,7 +6,7 @@ import ForgotPasswordForm from "@/components/ForgotPasswordForm";
 import ResetPasswordForm from "@/components/ResetPasswordForm";
 
 const Authentication = ({ isOpen, setIsOpen }) => {
-  const [status, setStatus] = useState("login");
+  const [status, setStatus] = useState("signup");
 
   return (
     <>

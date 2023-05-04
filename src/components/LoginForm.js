@@ -37,22 +37,13 @@ export const MessageAlert = ({ error, setError, message }) => {
 export const SubmitBtn = ({ isSubmitting, text }) => {
   return (
     <div className="my-6">
-      {isSubmitting ? (
-        <button
-          type="submit"
-          className="btn bg-blue-500 w-full text-white border-none"
-          disabled
-        >
-          Submitting...
-        </button>
-      ) : (
-        <button
-          type="submit"
-          className="btn bg-blue-500 w-full text-white border-none"
-        >
-          {text}
-        </button>
-      )}
+      <button
+        type="submit"
+        className="btn bg-blue-500 w-full text-gray-200 border-none"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Submitting..." : text}
+      </button>
     </div>
   );
 };
@@ -112,6 +103,7 @@ const LoginForm = ({ setStatus, setIsOpen, isOpen }) => {
               setIsOpen(false);
               reset();
               setError(false);
+              setStatus("signup");
             } else {
               window.location.reload();
             }

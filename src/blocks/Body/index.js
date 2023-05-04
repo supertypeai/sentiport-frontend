@@ -11,6 +11,10 @@ const Body = ({ children }) => {
       </div>
     );
   }
-  return <div className="px-6 lg:px-20 mx-auto py-8 lg:py-20">{children}</div>;
+  return (
+    <div className="px-6 lg:px-20 mx-auto py-8 lg:py-20 text-gray-200 ">
+      {children}
+    </div>
+  );
 };
 export default Body;
