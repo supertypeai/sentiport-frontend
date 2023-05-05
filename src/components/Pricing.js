@@ -44,9 +44,12 @@ const Pricing = () => {
         <div className="card-body">
           <h2 className="card-title">🎉 Free</h2>
           <span className="text-sm text-slate-400">Perfect to get started</span>
-          <p className="text-center text-6xl xs:text-7xl my-8 font-bold">
+          <p className="text-center text-6xl xs:text-7xl mt-8 font-bold">
             $0
             <span className="text-lg font-normal"> for 5 Credits</span>
+          </p>
+          <p className="text-sm text-slate-400 text-center mb-8">
+            No credit card required
           </p>
           <div className="card-actions justify-center">
             <label
@@ -68,9 +71,12 @@ const Pricing = () => {
         <div className="card-body">
           <h2 className="card-title">🚀 Pay as You Go</h2>
           <span className="text-sm text-slate-400">Our most popular offer</span>
-          <p className="text-center text-6xl xs:-7xl my-8 font-bold">
-            $2
-            <span className="text-lg font-normal"> / 1 Credit</span>
+          <p className="text-center text-6xl xs:-7xl mt-8 font-bold">
+            $10
+            <span className="text-lg font-normal"> / 5 Credits</span>
+          </p>
+          <p className="text-sm text-slate-400 text-center mb-8">
+            ~$2 per 1 credit
           </p>
           <div className="card-actions justify-center">
             <button
@@ -85,7 +91,7 @@ const Pricing = () => {
                 ? `Processing Your Request...`
                 : user
                 ? `Pay Now >`
-                : "Log in to use this feature"}
+                : "Log in to buy credits"}
             </button>
           </div>
         </div>

@@ -5,20 +5,20 @@ const Testimonial = () => {
     <div className="my-12">
       <div className="mb-12 text-center font-bold">
         <h1 className="text-2xl sm:text-4xl mb-6">
-          What They <span className="text-gradient">Said</span> About Us
+          What They <span className="text-gradient">Say</span> About Us
         </h1>
       </div>
 
       <div className="carousel w-full">
         <div id="testimonial-1" className="carousel-item relative w-full">
-          <div className="grid sm:grid-cols-2 gap-12 mt-6">
-            <div className="place-self-center self-center w-1/2">
+          <div className="grid sm:grid-cols-12 gap-12 mt-6">
+            <div className="place-self-center sm:place-self-end my-auto self-center w-1/2 sm:w-3/5 sm:col-span-5">
               <img
                 className="mask mask-squircle"
-                src="https://www.adweek.com/wp-content/uploads/2022/03/Yair-Yaskerovitch-400-2022.jpg"
+                src="images/testimonial_yair.jpg"
               />
             </div>
-            <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg">
+            <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg sm:col-span-7">
               <div className="rating">
                 <input
                   type="radio"
@@ -45,6 +45,7 @@ const Testimonial = () => {
                   name="rating-1"
                   className="mask mask-star bg-orange-400"
                   checked
+                  readOnly
                 />
               </div>
               <article className="prose font-normal text-gray-300 my-6">
@@ -76,14 +77,14 @@ const Testimonial = () => {
           </div>
         </div>
         <div id="testimonial-2" className="carousel-item relative w-full">
-          <div className="grid sm:grid-cols-2 gap-12 mt-6">
-            <div className="place-self-center self-center w-1/2">
+          <div className="grid sm:grid-cols-12 gap-12 mt-6">
+            <div className="place-self-center sm:place-self-end my-auto self-center w-1/2 sm:w-3/5 sm:col-span-5">
               <img
                 className="mask mask-squircle"
-                src="https://www.adweek.com/wp-content/uploads/2022/03/Yair-Yaskerovitch-400-2022.jpg"
+                src="images/testimonial_yair.jpg"
               />
             </div>
-            <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg">
+            <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg sm:col-span-7">
               <div className="rating">
                 <input
                   type="radio"
@@ -110,6 +111,7 @@ const Testimonial = () => {
                   name="rating-1"
                   className="mask mask-star bg-orange-400"
                   checked
+                  readOnly
                 />
               </div>
               <article className="prose font-normal text-gray-300 my-6">
@@ -141,14 +143,14 @@ const Testimonial = () => {
           </div>
         </div>
         <div id="testimonial-3" className="carousel-item relative w-full">
-          <div className="grid sm:grid-cols-2 gap-12 mt-6">
-            <div className="place-self-center self-center w-1/2">
+          <div className="grid sm:grid-cols-12 gap-12 mt-6">
+            <div className="place-self-center sm:place-self-end my-auto self-center w-1/2 sm:w-3/5 sm:col-span-5">
               <img
                 className="mask mask-squircle"
-                src="https://www.adweek.com/wp-content/uploads/2022/03/Yair-Yaskerovitch-400-2022.jpg"
+                src="images/testimonial_yair.jpg"
               />
             </div>
-            <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg">
+            <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg sm:col-span-7">
               <div className="rating">
                 <input
                   type="radio"
@@ -175,6 +177,7 @@ const Testimonial = () => {
                   name="rating-1"
                   className="mask mask-star bg-orange-400"
                   checked
+                  readOnly
                 />
               </div>
               <article className="prose font-normal text-gray-300 my-6">
