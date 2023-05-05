@@ -18,15 +18,15 @@ const Steps = () => {
           <div>
             <div className="flex flex-row">
               <div className="hidden md:flex flex-col items-center">
-                <div className="w-48 py-5 border border-gray-300 rounded mr-4 uppercase flex flex-col items-center justify-center">
+                <div className="w-48 py-5 border border-blue-300 rounded mr-4 uppercase flex flex-col items-center justify-center">
                   <div className="text-3xl font-black">Step 1</div>
                   <div className="text-slate-400 text-sm">Data Feeds</div>
                 </div>
                 <div className="h-full border-l-4 border-transparent">
-                  <div className="border-l-4 mr-4 h-full border-gray-300 border-dashed"></div>
+                  <div className="border-l-4 mr-4 h-full border-blue-300 border-dashed"></div>
                 </div>
               </div>
-              <div className="flex-auto border rounded border-gray-300">
+              <div className="flex-auto border rounded border-blue-300">
                 <div className="flex items-center">
                   <div className="hidden md:block md:w-1/4 lg:w-1/6 p-5">
                     <svg
@@ -121,24 +121,24 @@ const Steps = () => {
             </div>
             <div className="flex items-start flex-row">
               <div className="border-t-4 border-r-4 border-transparent">
-                <div className="w-16 ml-24 h-16 border-l-4 border-gray-300 border-dashed border-b-4 rounded-bl-full"></div>
+                <div className="w-16 ml-24 h-16 border-l-4 border-blue-300 border-dashed border-b-4 rounded-bl-full"></div>
               </div>
               <div className="border-t-4 border-transparent flex-auto">
-                <div className="h-16 border-b-4 border-gray-300 border-dashed"></div>
+                <div className="h-16 border-b-4 border-blue-300 border-dashed"></div>
               </div>
-              <div className="w-16 mt-16 mr-24 h-16 border-r-4 border-gray-300 border-dashed border-t-4 rounded-tr-full"></div>
+              <div className="w-16 mt-16 mr-24 h-16 border-r-4 border-blue-300 border-dashed border-t-4 rounded-tr-full"></div>
             </div>
             <div className="flex flex-row-reverse">
               <div className="hidden md:flex flex-col items-center">
-                <div className="w-48 py-5 border border-gray-300 rounded ml-4 uppercase flex flex-col items-center justify-center">
+                <div className="w-48 py-5 border border-blue-300 rounded ml-4 uppercase flex flex-col items-center justify-center">
                   <div className="text-3xl font-black">Step 2</div>
                   <div className="text-slate-400 text-sm">PDF Components</div>
                 </div>
                 <div className="h-full border-r-4 border-transparent">
-                  <div className="border-l-4 ml-4 h-full border-gray-300 border-dashed"></div>
+                  <div className="border-l-4 ml-4 h-full border-blue-300 border-dashed"></div>
                 </div>
               </div>
-              <div className="flex-auto border rounded border-gray-300">
+              <div className="flex-auto border rounded border-blue-300">
                 <div className="flex items-center">
                   <div className="hidden md:block md:w-1/4 lg:w-1/6 p-5">
                     <svg
@@ -265,23 +265,23 @@ const Steps = () => {
             </div>
             <div className="flex items-start flex-row-reverse">
               <div className="border-t-4 border-l-4 border-transparent">
-                <div className="w-16 mr-24 h-16 border-r-4 border-gray-300 border-dashed border-b-4 rounded-br-full"></div>
+                <div className="w-16 mr-24 h-16 border-r-4 border-blue-300 border-dashed border-b-4 rounded-br-full"></div>
               </div>
               <div className="border-t-4 border-transparent flex-auto">
-                <div className="h-16 border-b-4 border-gray-300 border-dashed"></div>
+                <div className="h-16 border-b-4 border-blue-300 border-dashed"></div>
               </div>
-              <div className="w-16 mt-16 ml-24 h-16 border-l-4 border-gray-300 border-dashed border-t-4 rounded-tl-full"></div>
+              <div className="w-16 mt-16 ml-24 h-16 border-l-4 border-blue-300 border-dashed border-t-4 rounded-tl-full"></div>
             </div>
             <div className="flex flex-row">
               <div className="hidden md:flex flex-col items-center">
-                <div className="w-48 py-5 border border-gray-300 rounded mr-4 uppercase flex flex-col items-center justify-center">
+                <div className="w-48 py-5 border border-blue-300 rounded mr-4 uppercase flex flex-col items-center justify-center">
                   <div className="text-3xl font-black">Step 3</div>
                   <div className="text-slate-400 text-sm">
                     Delivery & Automation
                   </div>
                 </div>
               </div>
-              <div className="flex-auto border rounded  border-gray-300">
+              <div className="flex-auto border rounded  border-blue-300">
                 <div className="flex items-center">
                   <div className="hidden md:block md:w-1/4 lg:w-1/6 p-5">
                     <svg

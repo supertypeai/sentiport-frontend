@@ -26,6 +26,9 @@ const Navbar = () => {
         <label
           tabIndex={0}
           className="btn btn-ghost normal-case text-lg md:text-3xl invisible lg:visible"
+          onClick={() => {
+            scrollToSection("home");
+          }}
         >
           <span className="logo-gradient">summary</span>
         </label>
