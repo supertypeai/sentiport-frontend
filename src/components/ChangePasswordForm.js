@@ -82,6 +82,7 @@ const ChangePasswordForm = ({ token }) => {
                 type="password"
                 id="old_password"
                 placeholder="Enter your current password"
+                autoComplete="current-password"
                 disabled={isSubmitting ? true : false}
               />
             </Field>
@@ -93,7 +94,7 @@ const ChangePasswordForm = ({ token }) => {
                 type="password"
                 id="new_password"
                 placeholder="Enter your new password"
-                autoComplete="current-password"
+                autoComplete="new-password"
                 disabled={isSubmitting ? true : false}
               />
             </Field>

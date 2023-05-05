@@ -93,7 +93,7 @@ const DemoForm = () => {
               href="#demo-page-1"
               className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit place-self-center"
             >
-              Get Started {">"}
+              Generate Report {">"}
             </Link>
           )}
         </div>

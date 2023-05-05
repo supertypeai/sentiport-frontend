@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 
 const TypingComponent = () => {
-  const phrases = [
-    "competitors analysis",
-    "creative analysis",
-    "user acquisition models",
-    "user retention models",
-    "user churn analysis",
-  ];
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [currentPhrase, setCurrentPhrase] = useState("");
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
+    const phrases = [
+      "competitors analysis",
+      "creative analysis",
+      "user acquisition models",
+      "user retention models",
+      "user churn analysis",
+    ];
+
     const typingInterval = setInterval(() => {
       if (isTyping) {
         const currentPhraseLength = currentPhrase.length;

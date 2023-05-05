@@ -25,12 +25,12 @@ export const UserContextWrapper = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [loggingIn, setLoggingIn] = useState(false);
 
-  const logoutUser = () => {
-    setAuthTokens(null);
-    setUser(null);
-  };
-
   useEffect(() => {
+    const logoutUser = () => {
+      setAuthTokens(null);
+      setUser(null);
+    };
+
     const updateToken = async () => {
       if (loading) {
         setLoggingIn(true);
@@ -79,7 +79,7 @@ export const UserContextWrapper = ({ children }) => {
       }, fourteenMinutes);
       return () => clearInterval(interval);
     }
-  }, [authTokens, loading]);
+  }, [authTokens, setAuthTokens, loading]);
 
   return (
     <UserContext.Provider

@@ -1,6 +1,6 @@
 const Steps = () => {
   return (
-    <div className="my-12">
+    <div className="my-12" id="steps">
       <div className="mb-12 text-center font-bold">
         <h1 className="text-2xl sm:text-4xl mb-6">
           How Does It <span className="text-gradient">Work?</span>

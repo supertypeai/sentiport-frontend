@@ -16,6 +16,7 @@ const Testimonial = () => {
               <img
                 className="mask mask-squircle"
                 src="images/testimonial_yair.jpg"
+                alt="Yair Yaskerovitch"
               />
             </div>
             <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg sm:col-span-7">
@@ -82,6 +83,7 @@ const Testimonial = () => {
               <img
                 className="mask mask-squircle"
                 src="images/testimonial_yair.jpg"
+                alt="Yair Yaskerovitch"
               />
             </div>
             <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg sm:col-span-7">
@@ -148,6 +150,7 @@ const Testimonial = () => {
               <img
                 className="mask mask-squircle"
                 src="images/testimonial_yair.jpg"
+                alt="Yair Yaskerovitch"
               />
             </div>
             <div className="place-self-center sm:place-self-start self-center text-center sm:text-justify w-5/6 text-base sm:text-lg sm:col-span-7">
