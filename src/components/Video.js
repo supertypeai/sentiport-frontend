@@ -6,13 +6,7 @@ const TypingComponent = () => {
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    const phrases = [
-      "competitors analysis",
-      "creative analysis",
-      "user acquisition models",
-      "user retention models",
-      "user churn analysis",
-    ];
+    const phrases = ["languages", "locations", "app versions"];
 
     const typingInterval = setInterval(() => {
       if (isTyping) {
@@ -50,7 +44,7 @@ const Video = () => {
     <div className="my-12">
       <div className="mb-12 text-center font-bold">
         <h1 className="text-2xl sm:text-4xl">
-          Programmatic PDFs for <TypingComponent />
+          Insights from user reviews across different <TypingComponent />
         </h1>
       </div>
       <div className="grid mt-6">

@@ -63,15 +63,14 @@ const DemoForm = () => {
       <div className="carousel-item relative w-full" id="home">
         <div className="grid">
           <h1 className="font-bold text-3xl sm:text-4xl lg:text-6xl mb-6">
-            Programmatic Report
-            <br />
-            Generation <span className="text-gradient">in Minutes</span>
+            Programmatic Report Generation of your App Review{" "}
+            <span className="text-gradient">in Minutes</span>
           </h1>
           <article className="prose text-base sm:text-lg text-gray-300 mb-6">
             Supertype Summary creates a highly tailored pipeline that output
             bespoke PDF in minutes, not days or hours. Because your time is too
-            valuable to be looking for insights from millions of data points
-            across multiple services, Summary consolidates{" "}
+            valuable to be looking for insights from millions of user reviews on
+            Google PlayStore, Summary consolidates{" "}
             <span className="text-gradient">
               your most important data feeds{" "}
             </span>
