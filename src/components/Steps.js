@@ -39,7 +39,7 @@ const Steps = () => {
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                        d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
                       ></path>
                     </svg>
                   </div>
@@ -48,13 +48,13 @@ const Steps = () => {
                       <span className="font-black">Step 1</span> - Data Feeds
                     </div>
                     <div className="p-3 text-xl md:text-2xl text-bold text-gradient font-bold">
-                      Google PlayStore URL
+                      App Store or Google Play Store URL
                     </div>
                     <div className="px-3 pb-6 text-sm sm:text-base">
                       Our automated scripts are capable of extracting all
                       relevant review information, including user ratings,
                       comments, and timestamps. All you need to do is provide us
-                      your Google PlayStore URL.
+                      your App Store or Google Play Store URL.
                     </div>
                   </div>
                 </div>
@@ -171,6 +171,36 @@ const Steps = () => {
                       meaningful topics. This provides a comprehensive overview
                       of user feedback, allowing you to prioritize areas for
                       improvement.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="hidden md:block md:w-1/4 lg:w-1/6 p-5">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div className="flex-auto">
+                    <div className="p-3 text-xl md:text-2xl text-bold text-gradient font-bold">
+                      Custom Logo & Branding Styles
+                    </div>
+                    <div className="px-3 pb-6 text-sm sm:text-base">
+                      Technical documents and reports, even if they&apos;re
+                      automatic, doesn&apos;t have to all look the same. We
+                      provide an option for you to add your custom logo and
+                      choose one of our color templates that suit your branding
+                      style.
                     </div>
                   </div>
                 </div>

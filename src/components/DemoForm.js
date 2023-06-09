@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 
@@ -14,7 +14,16 @@ const DemoForm = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+    trigger,
+    watch,
+  } = useForm({
+    defaultValues: {
+      color: "warm_brown",
+    },
+  });
+  const [type, setType] = useState();
+  const [errorLogo, setErrorLogo] = useState();
+  const color = watch("color");
 
   const testURL = async (url) => {
     const response = await fetch("/api/validateURL/", {
@@ -24,6 +33,7 @@ const DemoForm = () => {
       },
       body: JSON.stringify({
         url: url,
+        type: type,
       }),
     });
     const isValidURL = await response.json();
@@ -34,8 +44,40 @@ const DemoForm = () => {
     }
   };
 
-  const saveData = (id) => {
-    scrollToSection(id);
+  const validateImageFileSize = (event) => {
+    const file = event.target.files[0];
+    const fileSizeInBytes = file.size;
+    const maxSizeInBytes = 1024 * 1024; // 1MB
+
+    if (fileSizeInBytes > maxSizeInBytes) {
+      setErrorLogo({ message: "Image size exceeds 1 MB" });
+    } else {
+      setErrorLogo("");
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  };
+
+  const saveData = async (event, id, field) => {
+    event.preventDefault();
+    try {
+      await trigger(field);
+      if (field === "logo") {
+        if (!errorLogo && !errors[field]) {
+          scrollToSection(id);
+        }
+      } else {
+        if (!errors[field]) {
+          scrollToSection(id);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const submitData = (data) => {
@@ -70,7 +112,7 @@ const DemoForm = () => {
             Supertype Summary creates a highly tailored pipeline that output
             bespoke PDF in minutes, not days or hours. Because your time is too
             valuable to be looking for insights from millions of user reviews on
-            Google PlayStore, Summary consolidates{" "}
+            App Store or Google Play Store, Summary consolidates{" "}
             <span className="text-gradient">
               your most important data feeds{" "}
             </span>
@@ -88,12 +130,27 @@ const DemoForm = () => {
               Try for Free {">"}
             </label>
           ) : (
-            <Link
-              href="#demo-page-1"
-              className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit place-self-center"
-            >
-              Generate Report {">"}
-            </Link>
+            <div className="text-center">
+              <select
+                className="select select-primary w-full max-w-xs rounded-full sm:mr-5 mb-5 sm:mb-0 focus:outline-none"
+                defaultValue="placeholder"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              >
+                <option value="placeholder" disabled>
+                  Select report you want to generate
+                </option>
+                <option value="PlayStore">Google Play Store</option>
+                <option value="AppStore">App Store</option>
+              </select>
+              <Link
+                href="#demo-page-1"
+                className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit place-self-center"
+                disabled={type ? false : true}
+              >
+                Generate Report {">"}
+              </Link>
+            </div>
           )}
         </div>
       </div>
@@ -102,29 +159,30 @@ const DemoForm = () => {
           <div className="carousel-item relative w-full" id="demo-page-1">
             <div className="grid w-full">
               <h1 className="font-bold text-2xl sm:text-3xl lg:text-5xl w-4/5 md:w-3/4 place-self-center">
-                Provide us the{" "}
-                <span className="text-gradient">PlayStore URL</span> of your
-                application and we&apos;ll generate the app review report for
-                you
+                Provide us the <span className="text-gradient">{type} URL</span>{" "}
+                of your application and we&apos;ll generate the app review
+                report for you
               </h1>
-              <Form
-                onSubmit={handleSubmit(() => saveData("demo-page-2"))}
-                className="mt-4 w-4/5 md:w-3/5 place-self-center self-start"
-              >
+              <Form className="mt-4 w-4/5 md:w-3/5 place-self-center self-start">
                 <Field error={errors?.url}>
                   <div className="relative">
                     <input
                       {...register("url", {
-                        required: "PlayStore URL is required",
+                        required: `${type} URL is required`,
                         validate: testURL,
                       })}
                       className="form-control input placeholder-gray-500 placeholder-opacity-50 sm:placeholder-opacity-100 border-blue-500 bg-transparent rounded-xl focus:shadow-blue-500 focus:shadow-md focus:outline-none w-full max-w mb-1 py-3 px-4 leading-tight disabled:hover:cursor-not-allowed"
                       type="url"
                       id="url"
-                      placeholder="https://play.google.com/store/apps/details?id=..."
+                      placeholder={
+                        type === "AppStore"
+                          ? "https://apps.apple.com/us/app/app-name/id..."
+                          : "https://play.google.com/store/apps/details?id=..."
+                      }
+                      onKeyDown={handleKeyDown}
                     />
                     <button
-                      type="submit"
+                      onClick={(e) => saveData(e, "demo-page-2", "url")}
                       className="absolute top-0 right-0 bottom-0 flex items-center justify-center px-4 bg-transparent border-none cursor-pointer"
                     >
                       <svg
@@ -155,7 +213,7 @@ const DemoForm = () => {
                     Cancel ✕
                   </Link>
                   <button
-                    type="submit"
+                    onClick={(e) => saveData(e, "demo-page-2", "url")}
                     className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
                   >
                     Next {">"}
@@ -167,13 +225,146 @@ const DemoForm = () => {
           <div className="carousel-item relative w-full" id="demo-page-2">
             <div className="grid w-full">
               <h1 className="font-bold text-2xl sm:text-3xl lg:text-5xl w-4/5 md:w-3/4 place-self-center">
+                Upload your company&apos;s{" "}
+                <span className="text-gradient">logo</span> to be added to your
+                app review report
+              </h1>
+              <Form className="mt-4 w-4/5 md:w-3/5 place-self-center self-start">
+                <Field
+                  error={errorLogo || errors?.logo}
+                  hint=".jpg/.jpeg/.png/.webp, max 1 MB"
+                >
+                  <input
+                    {...register("logo")}
+                    type="file"
+                    className="file-input border-blue-500 w-full max-w-xs"
+                    accept=".jpg,.jpeg,.webp,.png"
+                    onChange={(e) => validateImageFileSize(e)}
+                  />
+                </Field>
+                <div className="flex w-full justify-center mt-3">
+                  <Link
+                    href="#demo-page-1"
+                    className="btn rounded-full bg-red-500 text-gray-200 hover:border-red-300 max-w-fit mr-5"
+                  >
+                    {"<"} Back
+                  </Link>
+                  <button
+                    onClick={(e) => saveData(e, "demo-page-3", "logo")}
+                    className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
+                  >
+                    Next {">"}
+                  </button>
+                </div>
+              </Form>
+            </div>
+          </div>
+          <div className="carousel-item relative w-full" id="demo-page-3">
+            <div className="grid w-full">
+              <h1 className="font-bold text-2xl sm:text-3xl lg:text-5xl w-4/5 md:w-3/4 place-self-center">
+                Choose one color that represents your{" "}
+                <span className="text-gradient">branding style</span>
+              </h1>
+              <Form className="mt-8 w-4/5 md:w-3/5 place-self-center self-start">
+                <div className="grid sm:grid-cols-12 gap-12 mb-8">
+                  <div className="mockup-window glass sm:col-span-9 rounded-lg">
+                    <img src={`images/${color}.png`} />
+                  </div>
+                  <div className="sm:col-span-3">
+                    <div className="grid grid-cols-2 gap-x-2 sm:gap-0 sm:grid-cols-none">
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <span className="label-text ml-0">Warm Brown</span>
+                          <input
+                            {...register("color")}
+                            type="radio"
+                            value="warm_brown"
+                            className="radio border-slate-500 checked:bg-[#a88c6c]"
+                          />
+                        </label>
+                      </div>
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <span className="label-text">Cloudy Blue</span>
+                          <input
+                            {...register("color")}
+                            type="radio"
+                            value="cloudy_blue"
+                            className="radio border-slate-500 checked:bg-[#c0d4ec]"
+                          />
+                        </label>
+                      </div>
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <span className="label-text">Peach</span>
+                          <input
+                            {...register("color")}
+                            type="radio"
+                            value="peach"
+                            className="radio border-slate-500 checked:bg-[#c89f9c]"
+                          />
+                        </label>
+                      </div>
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <span className="label-text">Dark Blue</span>
+                          <input
+                            {...register("color")}
+                            type="radio"
+                            value="dark_blue"
+                            className="radio border-slate-500 checked:bg-[#203454]"
+                          />
+                        </label>
+                      </div>
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <span className="label-text">Matcha</span>
+                          <input
+                            {...register("color")}
+                            type="radio"
+                            value="matcha"
+                            className="radio border-slate-500 checked:bg-[#484c34]"
+                          />
+                        </label>
+                      </div>
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <span className="label-text">Lonestar</span>
+                          <input
+                            {...register("color")}
+                            type="radio"
+                            value="lonestar"
+                            className="radio border-slate-500 checked:bg-[#680404]"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex w-full justify-center">
+                  <Link
+                    href="#demo-page-2"
+                    className="btn rounded-full bg-red-500 text-gray-200 hover:border-red-300 max-w-fit mr-5"
+                  >
+                    {"<"} Back
+                  </Link>
+                  <button
+                    onClick={(e) => saveData(e, "demo-page-4", "logo")}
+                    className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
+                  >
+                    Next {">"}
+                  </button>
+                </div>
+              </Form>
+            </div>
+          </div>
+          <div className="carousel-item relative w-full" id="demo-page-4">
+            <div className="grid w-full">
+              <h1 className="font-bold text-2xl sm:text-3xl lg:text-5xl w-4/5 md:w-3/4 place-self-center">
                 Enter your <span className="text-gradient">email address</span>{" "}
                 so we can send you the generated app review report
               </h1>
-              <Form
-                onSubmit={handleSubmit(() => saveData("demo-page-3"))}
-                className="mt-4 w-4/5 md:w-3/5 place-self-center self-start"
-              >
+              <Form className="mt-4 w-4/5 md:w-3/5 place-self-center self-start">
                 <Field error={errors?.email}>
                   <div className="relative">
                     <input
@@ -188,9 +379,10 @@ const DemoForm = () => {
                       type="email"
                       id="demo-email"
                       placeholder="your.email@mail.com"
+                      onKeyDown={handleKeyDown}
                     />
                     <button
-                      type="submit"
+                      onClick={(e) => saveData(e, "demo-page-5", "email")}
                       className="absolute top-0 right-0 bottom-0 flex items-center justify-center px-4 bg-transparent border-none cursor-pointer"
                     >
                       <svg
@@ -209,13 +401,13 @@ const DemoForm = () => {
                 </Field>
                 <div className="flex w-full justify-center">
                   <Link
-                    href="#demo-page-1"
+                    href="#demo-page-3"
                     className="btn rounded-full bg-red-500 text-gray-200 hover:border-red-300 max-w-fit mr-5"
                   >
                     {"<"} Back
                   </Link>
                   <button
-                    type="submit"
+                    onClick={(e) => saveData(e, "demo-page-5", "email")}
                     className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
                   >
                     Next {">"}
@@ -224,7 +416,7 @@ const DemoForm = () => {
               </Form>
             </div>
           </div>
-          <div className="carousel-item relative w-full" id="demo-page-3">
+          <div className="carousel-item relative w-full" id="demo-page-5">
             {user.credits > 0 ? (
               <div className="grid w-full">
                 <h1 className="font-bold text-2xl sm:text-3xl lg:text-5xl w-4/5 md:w-3/4 place-self-center">
@@ -240,7 +432,7 @@ const DemoForm = () => {
                 >
                   <div className="flex w-full justify-center">
                     <Link
-                      href="#demo-page-2"
+                      href="#demo-page-4"
                       className="btn rounded-full bg-red-500 text-gray-200 hover:border-red-300 max-w-fit mr-5"
                     >
                       {"<"} Back
@@ -262,7 +454,7 @@ const DemoForm = () => {
                   <span className="text-gradient">Credits</span> available.
                 </h1>
                 <Link
-                  href="#demo-page-2"
+                  href="#demo-page-4"
                   className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit place-self-center self-start"
                 >
                   Top Up Credits
