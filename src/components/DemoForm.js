@@ -18,7 +18,7 @@ const DemoForm = () => {
     watch,
   } = useForm({
     defaultValues: {
-      color: "warm_brown",
+      color: "Warm Brown",
     },
   });
   const [type, setType] = useState();
@@ -66,7 +66,7 @@ const DemoForm = () => {
     event.preventDefault();
     try {
       await trigger(field);
-      if (field === "logo") {
+      if (field === "custom_logo") {
         if (!errorLogo && !errors[field]) {
           scrollToSection(id);
         }
@@ -81,17 +81,25 @@ const DemoForm = () => {
   };
 
   const submitData = (data) => {
-    const finalData = {
-      ...data,
-      origin: "us",
-    };
+    const formData = new FormData();
+    formData.append("url", data.url);
+    formData.append("color", data.color);
+    formData.append("email", data.email);
+    formData.append("origin", "us");
+    if (data.custom_logo[0]) {
+      formData.append(
+        "custom_logo",
+        data.custom_logo[0],
+        data.custom_logo[0].name
+      );
+    }
+
     fetch("https://sentiport.de.r.appspot.com/api/get-report/", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(finalData),
+      body: formData,
     });
     setUser({
       ...user,
@@ -231,11 +239,11 @@ const DemoForm = () => {
               </h1>
               <Form className="mt-4 w-4/5 md:w-3/5 place-self-center self-start">
                 <Field
-                  error={errorLogo || errors?.logo}
+                  error={errorLogo || errors?.custom_logo}
                   hint=".jpg/.jpeg/.png/.webp, max 1 MB"
                 >
                   <input
-                    {...register("logo")}
+                    {...register("custom_logo")}
                     type="file"
                     className="file-input border-blue-500 w-full max-w-xs"
                     accept=".jpg,.jpeg,.webp,.png"
@@ -250,7 +258,7 @@ const DemoForm = () => {
                     {"<"} Back
                   </Link>
                   <button
-                    onClick={(e) => saveData(e, "demo-page-3", "logo")}
+                    onClick={(e) => saveData(e, "demo-page-3", "custom_logo")}
                     className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
                   >
                     Next {">"}
@@ -278,7 +286,7 @@ const DemoForm = () => {
                           <input
                             {...register("color")}
                             type="radio"
-                            value="warm_brown"
+                            value="Warm Brown"
                             className="radio border-slate-500 checked:bg-[#a88c6c]"
                           />
                         </label>
@@ -289,7 +297,7 @@ const DemoForm = () => {
                           <input
                             {...register("color")}
                             type="radio"
-                            value="cloudy_blue"
+                            value="Cloudy Blue"
                             className="radio border-slate-500 checked:bg-[#c0d4ec]"
                           />
                         </label>
@@ -300,7 +308,7 @@ const DemoForm = () => {
                           <input
                             {...register("color")}
                             type="radio"
-                            value="peach"
+                            value="Peach"
                             className="radio border-slate-500 checked:bg-[#c89f9c]"
                           />
                         </label>
@@ -311,7 +319,7 @@ const DemoForm = () => {
                           <input
                             {...register("color")}
                             type="radio"
-                            value="dark_blue"
+                            value="Dark Blue"
                             className="radio border-slate-500 checked:bg-[#203454]"
                           />
                         </label>
@@ -322,7 +330,7 @@ const DemoForm = () => {
                           <input
                             {...register("color")}
                             type="radio"
-                            value="matcha"
+                            value="Matcha"
                             className="radio border-slate-500 checked:bg-[#484c34]"
                           />
                         </label>
@@ -333,8 +341,19 @@ const DemoForm = () => {
                           <input
                             {...register("color")}
                             type="radio"
-                            value="lonestar"
+                            value="Lonestar"
                             className="radio border-slate-500 checked:bg-[#680404]"
+                          />
+                        </label>
+                      </div>
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <span className="label-text">Mythical Purple</span>
+                          <input
+                            {...register("color")}
+                            type="radio"
+                            value="Mythical Purple"
+                            className="radio border-slate-500 checked:bg-[#e01c94]"
                           />
                         </label>
                       </div>
@@ -349,7 +368,7 @@ const DemoForm = () => {
                     {"<"} Back
                   </Link>
                   <button
-                    onClick={(e) => saveData(e, "demo-page-4", "logo")}
+                    onClick={(e) => saveData(e, "demo-page-4", "custom_logo")}
                     className="btn rounded-full text-gradient bg-transparent border-blue-500 hover:text-gray-200 hover:border-blue-300 max-w-fit"
                   >
                     Next {">"}
